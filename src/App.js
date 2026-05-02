@@ -12,7 +12,7 @@ initDarkMode();
 export default function App() {
   const [, forceUpdate] = useState(0);
   return (
-    <Router>
+    <Router basename="/virus-scanner-react-app">
       <div className="app">
         <Header onDarkModeToggle={() => forceUpdate(n => n + 1)} /> {/* force to update dark mode. This works! */}
         <main className="app-main">

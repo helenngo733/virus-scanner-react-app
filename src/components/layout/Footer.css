@@ -1,0 +1,21 @@
+.footer {
+  background: var(--vt-header);
+  color: rgba(255, 255, 255, 0.5);
+  padding: 1rem 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-line {
+  margin: 0;
+}
+
+.footer-line--spaced {
+  margin-top: 0.25rem;
+}
+
+.footer-link {
+  color: #5b8dee;
+  text-decoration: none;
+}

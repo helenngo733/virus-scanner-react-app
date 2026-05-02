@@ -1,0 +1,98 @@
+.scan-result {
+  margin-top: 1.5rem;
+}
+
+.scan-result-banner {
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.scan-result-banner--malicious {
+  background: rgba(220, 38, 38, 0.08);
+}
+
+.scan-result-banner--suspicious {
+  background: rgba(249, 115, 22, 0.08);
+}
+
+.scan-result-banner--harmless {
+  background: rgba(34, 197, 94, 0.08);
+}
+
+.scan-result-label {
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.2rem;
+}
+
+.scan-result-verdict {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.scan-result-verdict--malicious,
+.scan-result-count--malicious {
+  color: #dc2626;
+}
+
+.scan-result-verdict--suspicious,
+.scan-result-count--suspicious {
+  color: #f97316;
+}
+
+.scan-result-verdict--harmless,
+.scan-result-count--harmless {
+  color: #22c55e;
+}
+
+.scan-result-count-block {
+  text-align: right;
+}
+
+.scan-result-count {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.scan-result-count-total {
+  font-size: 1rem;
+  color: var(--vt-text-muted);
+  font-weight: 400;
+}
+
+.scan-result-count-label {
+  font-size: 0.85rem;
+}
+
+.scan-result-meta {
+  background: var(--vt-surface2);
+  border-radius: 10px;
+  padding: 1rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+}
+
+.scan-result-meta-line {
+  margin-bottom: 0.2rem;
+}
+
+
+.full-report-button {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.65rem;
+  background: var(--vt-header);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+}

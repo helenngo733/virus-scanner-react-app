@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/virus-scanner-react-app/static/css/main.92e1cba4.css",
-    "main.js": "/virus-scanner-react-app/static/js/main.79c83776.js",
+    "main.js": "/virus-scanner-react-app/static/js/main.23f6944b.js",
     "static/js/453.8014d336.chunk.js": "/virus-scanner-react-app/static/js/453.8014d336.chunk.js",
     "index.html": "/virus-scanner-react-app/index.html",
     "main.92e1cba4.css.map": "/virus-scanner-react-app/static/css/main.92e1cba4.css.map",
-    "main.79c83776.js.map": "/virus-scanner-react-app/static/js/main.79c83776.js.map",
+    "main.23f6944b.js.map": "/virus-scanner-react-app/static/js/main.23f6944b.js.map",
     "453.8014d336.chunk.js.map": "/virus-scanner-react-app/static/js/453.8014d336.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.92e1cba4.css",
-    "static/js/main.79c83776.js"
+    "static/js/main.23f6944b.js"
   ]
 }

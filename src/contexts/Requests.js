@@ -1,4 +1,4 @@
-const API_KEY = ""; // VirusTotal API Key here
+const VIRUSTOTAL_API_KEY = process.env.REACT_APP_API_KEY;  // add your own VirusTotal API key here
 const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
 const VT_BASE = "https://www.virustotal.com/api/v3";
 
@@ -18,13 +18,13 @@ function urlToId(url) {
 export async function makeVTRequest(endpoint, options = {}) {
   const response = await fetch(proxied(endpoint), {
     ...options,
-    headers: { "x-apikey": API_KEY, "Origin": "https://www.virustotal.com", ...options.headers },
+    headers: { "x-apikey": VIRUSTOTAL_API_KEY, "Origin": "https://www.virustotal.com", ...options.headers },
   });
 
   // this is to catch the CORS 403 error
   if (!response.ok) {
     if (response.status === 403) {
-      throw new Error("403 Error. Visit https://cors-anywhere.herokuapp.com/corsdemo to request temporary access and try again.");
+      throw new Error("403 Error. Visit \"https://cors-anywhere.herokuapp.com/corsdemo\" to request temporary access and try again.");
     }
     const err = await response.json().catch(() => ({ error: { message: response.statusText } }));
     throw new Error(err.error?.message || `Request failed (${response.status})`);
@@ -70,7 +70,7 @@ export function parseFile(data) {
   const total = Object.values(stats).reduce((s, v) => s + v, 0); // total engines 
   if (!total) return null;
 
-  const num = (v) => ((v / total) * 100).toFixed(1); // number of engines for each verdict (ig also the percentage?) 
+  const num = (v) => ((v / total) * 100).toFixed(1); // number of engines for each verdict (also counts as the percentage?) 
 
   return {
     stats, total,

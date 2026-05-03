@@ -16,18 +16,19 @@ export default function ScanTabs() {
   const [result, setResult]       = useState(null);
   const [fullReport, setFullReport] = useState(null);
   const [fileName, setFileName]   = useState(null);
-  const fileRef = useRef(null);
+  const fileRef = useRef(null); // reference (ref) to trigger file input click
 
   // reset states before new scan
   const reset = () => { setError(null); setResult(null); setLoading(null); };
 
   ///  File Scan ///
+  // Note: Don't upload sensitive files, try downloading a harmless file (e.g from eicar.com) for testing
   const handleFile = async () => {
     try {
-      const file = fileRef.current?.files?.[0];
+      const file = fileRef.current?.files?.[0]; // to get the selected file from file input
 
       if (!file) {
-        return setError("Please select a file.");
+        return setError("Please select a file");
       }
 
       if (file.size > 32 * 1024 * 1024) {
@@ -44,8 +45,8 @@ export default function ScanTabs() {
         const parsed = parseFile(fileReport);
         setLoading(null);
 
-        if (!parsed) {
-          setError("File not usable. Try again");
+        if (!parsed) { // means that the file doesn't exist in VirusTotal's database 
+          setError("File is invalid. Try again");
           return;
         }
 
@@ -55,7 +56,7 @@ export default function ScanTabs() {
 
       } catch (err) {
         setLoading(null);
-        return setError("File not valid. Try again.");
+        return setError(err?.message || String(err));
       }
 
     } catch (err) {
@@ -68,7 +69,7 @@ export default function ScanTabs() {
   const handleUrl = async () => {
     const t = url.trim();
     if (!t) {
-      return setError("Please enter a URL.");
+      return setError("Please enter a URL");
     }
 
     try { 
@@ -85,8 +86,8 @@ export default function ScanTabs() {
         const parsed = parseFile(urlReport);
         setLoading(null);
         
-        if (!parsed) {
-          setError("URL not usable. Try again");
+        if (!parsed) { // means that the file doesn't exist in VirusTotal's database 
+          setError("URL is invalid. Try again");
           return;
         }
         
@@ -96,7 +97,7 @@ export default function ScanTabs() {
 
       } catch (err) {
         setLoading(null);
-        return setError("URL not valid. Try again.");
+        return setError(err?.message || String(err));
       }
 
     } catch (err) {
@@ -110,10 +111,10 @@ export default function ScanTabs() {
     const t = hash.trim();
 
     if (!t) {
-      return setError("Please enter a hash.");
+      return setError("Please enter a hash");
     }
 
-    if (!/^[a-fA-F0-9]{32}$|^[a-fA-F0-9]{40}$|^[a-fA-F0-9]{64}$/.test(t)) {
+    if (!/^[a-fA-F0-9]{32}$|^[a-fA-F0-9]{40}$|^[a-fA-F0-9]{64}$/.test(t)) { // MD5, SHA-1, SHA-256 hashes
       return setError("Enter a valid hash (e.g. 44d88612fea8a8f36de82e1278abb02f)");
     }
 
